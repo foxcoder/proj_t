@@ -36,3 +36,4 @@ Route::get('/go/contact', 'WelcomeController@goToContactPage');
 
 //Route::get('projects', 'ProjectController@listAll');
 Route::get('projects', '\App\Http\Controllers\pages\ProjectController@listAll');
+Route::get('projects/projform', '\App\Http\Controllers\pages\ProjectController@openProjectFrom');

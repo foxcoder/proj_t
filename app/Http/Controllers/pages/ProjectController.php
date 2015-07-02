@@ -20,7 +20,7 @@ class ProjectController extends Controller
         //$proj_list=AIProjectEO::all();
         $test='';
         //if we have list in
-        return view('pages/projects');
+        return view('pages/proj_list');
        // return view('pages/projects', compact('proj_list'));
     }
 
@@ -29,9 +29,9 @@ class ProjectController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function openProjectFrom()
     {
-        //
+        return view('pages/proj_create_form');
     }
 
     /**
