@@ -5,33 +5,93 @@ namespace App\Http\Controllers\Pages;
 use App\AIProjectEO;
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
+   /*
+    const  action_create=0;
+    const  action_modify=1;
+    const  action_delete=2;
+
+    const  state_none=0;
+    const  state_in_design=1;
+    const  state_in_coding=2;
+    const  state_in_testing=3
+    const  state_blocked=4;
+    const  state_released=5;5
+ */
+
+
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function listAll()
+    public function getProjects()
     {
-        //$proj_list=AIProjectEO::all();
-        $test='';
+        $proj_list=AIProjectEO::all();
+
+       dd($proj_list);
+
         //if we have list in
-        return view('pages/proj_list');
-       // return view('pages/projects', compact('proj_list'));
+       // return view('pages/proj_list');
+        return view('pages/proj_list', compact('proj_list'));
     }
 
+
+     public  function phpinfo(){
+         dd(phpinfo());
+     }
     /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function openProjectFrom()
+    public function storeProject(Request $request)
     {
-        return view('pages/proj_create_form');
+        $m_id=$request->input('proj_id');
+        $m_name=$request->input('proj_name');
+        $m_desc=$request->input('proj_desc');
+        $m_start_date=$request->input('start_date');
+        $m_due_date=$request->input('due_date');
+        $m_type=$request->input('proj_type');
+
+        $login_user_id= Auth::id();
+
+
+
+        return redirect()->action('ProjectController@getProjects');
+    }
+
+
+    public function  editProject(Request $request){
+        $isNewProj=false;
+        $proj_id=$request->input('proj_id');
+
+        if(empty($request->input('proj_id'))) {
+            $isNewProj=true;
+        }
+
+        if($isNewProj) {
+            return view('pages/proj_create_form');
+        }else {
+            $project= AIProjectEO::findOrNew($proj_id);
+            return view('pages/proj_create_form')->with(compact('project'));
+        }
+
+
+    }
+
+
+
+
+    public function projecTimeline()
+    {
+        return view('pages/proj_timeline');
     }
 
     /**
@@ -41,7 +101,7 @@ class ProjectController extends Controller
      */
     public function store()
     {
-        //
+
     }
 
     /**

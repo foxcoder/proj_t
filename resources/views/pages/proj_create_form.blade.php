@@ -25,25 +25,27 @@
                     <div class="portlet box green">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-gift"></i>Advance Validation
+                                <i class="fa fa-gift"></i>Create/Edit Project
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="collapse">
+                               
+                               <!--  <a href="javascript:;" class="collapse">
                                 </a>
                                 <a href="#portlet-config" data-toggle="modal" class="config">
                                 </a>
                                 <a href="javascript:;" class="reload">
                                 </a>
                                 <a href="javascript:;" class="remove">
-                                </a>
+                                </a> -->
+
                             </div>
                         </div>
                         <div class="portlet-body form">
                             <!-- BEGIN FORM-->
                             <form action="#" id="form_sample_3" class="form-horizontal">
                                 <div class="form-body">
-                                    <h3 class="form-section">Advance validation. <small>Custom radio buttons, checkboxes and Select2 dropdowns</small></h3>
-                                    <div class="alert alert-danger display-hide">
+                                    <h3 class="form-section">Project Form</h3>
+                                    <div class="alert alert-danger ">
                                         <button class="close" data-close="alert"></button>
                                         You have some form errors. Please check below.
                                     </div>
@@ -52,13 +54,74 @@
                                         Your form validation is successful!
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">Name <span class="required">
+                                        <label class="control-label col-md-3">Projct Name <span class="required">
                                         * </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" name="name" data-required="1" class="form-control"/>
+                                            <input type="text" name="proj_name" data-required="1" class="form-control"/>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Project Description <span class="required">
+                                        * </span>
+                                        </label>
+                                        <div class="col-md-9">
+                                            <textarea class="wysihtml5 form-control" rows="6" name="proj_desc" data-error-container="#editor1_error"></textarea>
+                                            <div id="editor1_error">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Start Date</label>
+                                        <div class="col-md-4">
+                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                                <input type="text" class="form-control" readonly name="start_date">
+                                                <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                            <!-- /input-group -->
+                                            <span class="help-block">
+                                            select a date </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Due Date</label>
+                                        <div class="col-md-4">
+                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                                <input type="text" class="form-control" readonly name="due_date">
+                                                <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                            <!-- /input-group -->
+                                            <span class="help-block">
+                                            select a date </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Project Type <span class="required">
+                                        * </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <div class="radio-list" data-error-container="#form_2_membership_error">
+                                                <label>
+                                                   <input type="radio" name="membership" value="1"/>
+                                                      Public
+                                                </label>
+                                                <label>
+                                                   <input type="radio" name="membership" value="2"/>
+                                                      Private
+                                                </label>
+                                            </div>
+                                            <div id="form_2_membership_error">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Email Address <span class="required">
                                         * </span>
@@ -72,6 +135,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    -->
+                                    <!--
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Occupation&nbsp;&nbsp;</label>
                                         <div class="col-md-4">
@@ -102,20 +167,7 @@
                                             select tags </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Datepicker</label>
-                                        <div class="col-md-4">
-                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                                <input type="text" class="form-control" readonly name="datepicker">
-                                                <span class="input-group-btn">
-                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                </span>
-                                            </div>
-                                            <!-- /input-group -->
-                                            <span class="help-block">
-                                            select a date </span>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Membership <span class="required">
                                         * </span>
@@ -152,6 +204,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    -->
                                     <!--
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Markdown</label>
@@ -162,16 +215,7 @@
                                         </div>
                                     </div>
                                     -->
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">WYSIHTML5 Editor <span class="required">
-                                        * </span>
-                                        </label>
-                                        <div class="col-md-9">
-                                            <textarea class="wysihtml5 form-control" rows="6" name="editor1" data-error-container="#editor1_error"></textarea>
-                                            <div id="editor1_error">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <!--
                                     <div class="form-group last">
                                         <label class="control-label col-md-3">CKEditor <span class="required">

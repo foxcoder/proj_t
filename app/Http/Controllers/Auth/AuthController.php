@@ -7,7 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class grep  extends Controller
+class AuthController  extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ class grep  extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|confirmed|min:1',
         ]);
     }
 

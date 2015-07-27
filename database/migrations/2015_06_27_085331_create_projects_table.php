@@ -16,7 +16,12 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('proj_name');
             $table->longText('proj_desc');
-            $table->bigInteger('user_sys_id');
+            $table->bigInteger('proj_owner');
+            $table->integer('flag'); //1: created, 2:modified, 3:deleted.
+            $table->integer('state');//0: NON ,1:started, 2, in coding, 3 in testing, 5 done, 6 blockd
+            $table->date('start_date');
+            $table->date('due_date');
+
             $table->timestamps();
         });
     }

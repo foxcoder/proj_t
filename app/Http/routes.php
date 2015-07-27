@@ -13,21 +13,11 @@
 
 
 
-/*
- * Test part
- */
-Route::get('/', function () {
+Route::controllers ([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
-
-    return view('welcome');
-});
-
-
-
-Route::get('/go/contact', 'WelcomeController@goToContactPage');
-
-/*nav to page*/
-//Route::get('/about',"PageController@goToAboutPage" );
 
 
 /*
@@ -35,5 +25,10 @@ Route::get('/go/contact', 'WelcomeController@goToContactPage');
  */
 
 //Route::get('projects', 'ProjectController@listAll');
-Route::get('projects', '\App\Http\Controllers\pages\ProjectController@listAll');
+Route::get('projects', '\App\Http\Controllers\pages\ProjectController@getProjects');
 Route::get('projects/projform', '\App\Http\Controllers\pages\ProjectController@openProjectFrom');
+Route::get('projects/editProject', '\App\Http\Controllers\pages\ProjectController@editProject');
+Route::get('projects/projtimeline', '\App\Http\Controllers\pages\ProjectController@projecTimeline');
+
+Route::post('projects/createProject', '\App\Http\Controllers\pages\ProjectController@projecTimeline');
+
